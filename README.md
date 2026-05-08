@@ -1,7 +1,8 @@
 # Local Cinema Movie Ticket System
 
-A Java-based application for managing and reporting movie ticket sales. This project demonstrates object-oriented 
-programming principles, interface-based design, array manipulation, and unit testing.
+A Java-based application for managing and reporting movie ticket sales.  
+This project demonstrates object-oriented programming principles,  
+interface-based design, array manipulation, and unit testing.
 
 ## Table of Contents
 
@@ -9,7 +10,7 @@ programming principles, interface-based design, array manipulation, and unit tes
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
-- [Installation](#installation)
+- [Installation and Cloning](#installation-and-cloning)
 - [Usage](#usage)
 - [Testing](#testing)
 - [Code Examples](#code-examples)
@@ -17,24 +18,31 @@ programming principles, interface-based design, array manipulation, and unit tes
 
 ## Overview
 
-This application processes movie ticket sales data for a local cinema. It generates formatted sales reports showing monthly 
-ticket sales for movies, calculates total sales per movie, and identifies the top-performing movie. The project was developed 
-as part of the PROG6112 examination.
+This application processes movie ticket sales data for a local cinema.  
+It generates formatted sales reports showing monthly ticket sales for  
+movies, calculates total sales per movie, and identifies the top-  
+performing movie. The project was developed as part of the PROG6112  
+examination and follows clean coding practices.
 
 ## Features
 
-- **Monthly Sales Reporting**: Displays ticket sales for January, February, and March 2024
-- **Sales Calculations**: Automatically calculates total sales for each movie
-- **Performance Analysis**: Identifies the top-performing movie based on total sales
-- **Interface-Based Design**: Demonstrates clean separation of concerns through interface implementation
-- **Comprehensive Validation**: Handles edge cases and invalid inputs gracefully
-- **Unit Testing**: Includes JUnit 4 tests for all core functionality
+- Monthly Sales Reporting: Displays ticket sales for January,  
+  February, and March 2024.
+- Sales Calculations: Automatically calculates total sales for each  
+  movie.
+- Performance Analysis: Identifies the top-performing movie based on  
+  total sales.
+- Interface-Based Design: Demonstrates clean separation of concerns  
+  through interface implementation.
+- Comprehensive Validation: Handles edge cases and invalid inputs  
+  gracefully.
+- Unit Testing: Includes JUnit 4 tests for all core functionality.
 
 ## Technologies Used
 
-- **Java**: Core programming language (JDK 8 or higher)
-- **JUnit 4**: Unit testing framework
-- **NetBeans IDE**: Recommended development environment
+- Java: Core programming language (JDK 8 or higher).
+- JUnit 4: Unit testing framework.
+- NetBeans IDE: Recommended development environment.
 
 ## Project Structure
 
@@ -51,164 +59,106 @@ local-cinema-java/
     └── documentation.md
 ```
 
-## Installation
+## Installation and Cloning
 
-### Prerequisites
+Follow these steps to set up the project on your local machine.
 
-- Java Development Kit (JDK) 8 or higher
-- JUnit 4.12 or higher (for testing)
-- An IDE such as NetBeans, Eclipse, or IntelliJ IDEA (recommended)
+Prerequisites:
+- Java Development Kit (JDK) 8 or higher.
+- JUnit 4.12 or higher for testing.
+- An IDE such as NetBeans, Eclipse, or IntelliJ IDEA.
 
-### Steps
-
-1. **Clone the repository**
+Steps:
+1. Clone the repository using the command below:
    ```bash
    git clone https://github.com/HChristopherNaoyuki/local-cinema-java.git
+   ```
+2. Navigate into the project folder:
+   ```bash
    cd local-cinema-java
    ```
-
-2. **Open in your IDE**
-   - **NetBeans**: File → Open Project → Select the project folder
-   - **Eclipse**: File → Import → Existing Projects into Workspace
-   - **IntelliJ IDEA**: Open → Select the project folder
-
-3. **Build the project**
-   - Most IDEs will build automatically
-   - For command line compilation:
-     ```bash
-     javac Solution/*.java
-     ```
+3. Open the project in your preferred IDE.
+4. Build the project using your IDE or command line.
 
 ## Usage
 
-### Running the Application
+Run the application to generate the movie ticket sales report.
 
-**Using Command Line:**
+Using Command Line:
 ```bash
 java Solution.MovieSalesReport
 ```
 
-**Using NetBeans IDE:**
-1. Navigate to `MovieSalesReport.java`
-2. Right-click and select "Run File"
+Using NetBeans IDE:
+1. Open MovieSalesReport.java.
+2. Right-click and select Run File.
 
-**Sample Output:**
-```
-MOVIE TICKET SALES REPORT - 2024
-JAN	FEB	MAR
-Napoleon	3000	1500	1700	
-Oppenheimer	3500	1200	1600	
-
-Total movie ticket sales for Napoleon £6200
-Total movie ticket sales for Oppenheimer £6300
-
-Top performing movie: Oppenheimer
-```
+Sample output includes monthly sales totals and the top movie.
 
 ## Testing
 
-### Running Unit Tests
+Run unit tests to verify all calculations and edge case handling.
 
-**Using Command Line with JUnit:**
+Using Command Line with JUnit:
 ```bash
-# Compile tests with JUnit in classpath
 javac -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar Solution/tests/*.java
-
-# Run tests
-java -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore Solution.tests.MovieTicketsTest
+java -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar \
+     org.junit.runner.JUnitCore Solution.tests.MovieTicketsTest
 ```
 
-**Using NetBeans IDE:**
-1. Navigate to `MovieTicketsTest.java`
-2. Right-click and select "Test File"
+Using NetBeans IDE:
+1. Open MovieTicketsTest.java.
+2. Right-click and select Test File.
 
-### Test Coverage
-
-The test suite includes:
-
-| Test | Purpose |
-|------|---------|
-| `CalculateTotalSales_ReturnsExpectedTotalSales` | Verifies total sales calculation |
-| `TopMovieSales_ReturnsTopMovie` | Verifies top movie identification |
-| `TopMovieSales_HandlesNullInput` | Tests null input handling |
-| `TopMovieSales_HandlesMismatchedArrayLengths` | Tests array length validation |
-| `TotalMovieSales_HandlesNullInput` | Tests null input for sales calculation |
-| `TotalMovieSales_ReturnsZeroForEmptyArray` | Tests empty array handling |
-| `TopMovieSales_HandlesEmptyArrays` | Tests empty array handling for top movie |
-| `TotalMovieSales_CalculatesCorrectlyForSingleElement` | Tests single-element array |
+The test suite includes validation for total sales, top movie,  
+null inputs, mismatched array lengths, and empty arrays.
 
 ## Code Examples
 
-### Interface Definition
-
+Interface definition:
 ```java
-public interface IMovieTickets
-{
+public interface IMovieTickets {
     int TotalMovieSales(int[] movieTicketSales);
     String TopMovie(String[] movies, int[] totalSales);
 }
 ```
 
-### Implementation Class
-
+Implementation class method example:
 ```java
-public class MovieTickets implements IMovieTickets
-{
-    @Override
-    public int TotalMovieSales(int[] movieTicketSales)
-    {
-        if (movieTicketSales == null)
-        {
-            return 0;
-        }
-        
-        int total = 0;
-        for (int monthlySales : movieTicketSales)
-        {
-            total += monthlySales;
-        }
-        return total;
+@Override
+public int TotalMovieSales(int[] movieTicketSales) {
+    if (movieTicketSales == null) {
+        return 0;
     }
-    
-    @Override
-    public String TopMovie(String[] movies, int[] totalSales)
-    {
-        // Validation and implementation
-        // Returns top movie name or error message
+    int total = 0;
+    for (int sales : movieTicketSales) {
+        total += sales;
     }
+    return total;
 }
 ```
 
-### Unit Test Example
-
+Unit test example:
 ```java
 @Test
-public void CalculateTotalSales_ReturnsExpectedTotalSales()
-{
+public void CalculateTotalSales_ReturnsExpectedTotalSales() {
     IMovieTickets calculator = new MovieTickets();
-    int[] napoleonSales = {3000, 1500, 1700};
-    int expectedTotal = 6200;
-    
-    int actualTotal = calculator.TotalMovieSales(napoleonSales);
-    
-    assertEquals("The total sales calculated for Napoleon should be 6200.",
-                 expectedTotal, actualTotal);
+    int[] sales = {3000, 1500, 1700};
+    int expected = 6200;
+    int actual = calculator.TotalMovieSales(sales);
+    assertEquals(expected, actual);
 }
 ```
 
 ## Documentation
 
-Comprehensive technical documentation is available in the `Documentation` folder:
+Full technical documentation is located in the Documentation folder.
+The documentation.md file includes interface specifications, method  
+details, unit test descriptions, setup instructions, and coding  
+standards. Refer to this guide for deeper technical insights.
 
-- **documentation.md**: Complete technical documentation including:
-  - Interface and class documentation
-  - Method specifications
-  - Unit test documentation
-  - Installation and setup instructions
-  - Coding standards
+---
 
-## License
-
-This project is created for educational purposes as part of the PROG6112 examination.
+End of Document
 
 ---
