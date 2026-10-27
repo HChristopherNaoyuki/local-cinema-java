@@ -159,6 +159,6 @@ standards. Refer to this guide for deeper technical insights.
 
 ---
 
-End of Document
+END OF DOCUMENT
 
 ---
